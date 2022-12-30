@@ -2,7 +2,7 @@ package com.nelioalves.cursomc.resources.exceptions;
 
 import java.io.Serializable;
 
-public class StandarError implements Serializable {
+public class StandardError implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -11,7 +11,7 @@ public class StandarError implements Serializable {
 	private Long  timeStamp;
 	
 	
-	public StandarError(Integer status, String msg, Long timeStamp) {
+	public StandardError(Integer status, String msg, Long timeStamp) {
 		super();
 		this.status = status;
 		this.msg = msg;
