@@ -1,6 +1,8 @@
 package com.nelioalves.cursomc.config;
 
 import com.nelioalves.cursomc.services.DBService;
+import com.nelioalves.cursomc.services.EmailService;
+import com.nelioalves.cursomc.services.SmtpEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,12 +24,15 @@ public class DevConfig {
     @Bean
     public boolean instantiateDatabase() throws ParseException {
 
-        if (!"create".equals(strategy)){
+        if (!"create".equals(strategy)) {
             return false;
         }
         dbService.instantiateTestDatabase();
-
         return true;
+    }
 
+    @Bean
+    public EmailService emailService() {
+        return new SmtpEmailService();
     }
 }
